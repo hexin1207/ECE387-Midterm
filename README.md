@@ -1,2 +1,2 @@
-# ECE387-Midterm
+# ECE387-Midterm-Project
 Screen and Touch Sensor 
