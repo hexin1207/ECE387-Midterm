@@ -29,7 +29,7 @@
 
 Adafruit_TFTLCD tft(LCD_CS, LCD_CD, LCD_WR, LCD_RD, LCD_RESET);
 
-TouchScreen ts = TouchScreen(XP, YP, XM, YM, 364);
+TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
 
 boolean buttonEnabled = true;
 
@@ -42,34 +42,34 @@ void setup() {
   tft.fillScreen(WHITE);
   tft.drawRect(0, 0, 319, 240, YELLOW);
 
-  tft.setCursor(105, 40);
+  tft.setCursor(60, 40);
   tft.setTextColor(BLACK);
   tft.setTextSize(3);
-  tft.print("HELLO");
+  tft.print("Touchscreen\n     Project");
 
-  tft.setCursor(115, 80);
-  tft.setTextColor(BLACK);
+  tft.setCursor(125, 100);
+  tft.setTextColor(MAGENTA);
   tft.setTextSize(2);
-  tft.print("HELLO");
+  tft.print("ECE 387");
 
-  tft.setCursor(115, 120);
+  tft.setCursor(110, 120);
   tft.setTextColor(BLUE);
   tft.setTextSize(2);
-  tft.print("MIDTERM");
+  tft.print("HOME PAGE");
 
-  tft.fillRect(50, 140, 210, 40, RED);
-  tft.drawRect(50, 140, 210, 40, BLUE);
-  tft.setCursor(90, 190);
-  tft.setTextColor(WHITE);
+  tft.fillRect(50, 160, 100, 60,YELLOW);
+  tft.drawRect(50, 160, 100, 60, BLUE);
+  tft.setCursor(55, 185);
+  tft.setTextColor(BLACK);
   tft.setTextSize(2);
-  tft.print("please click");
+  tft.print("BUTTON 1");
 
-  tft.fillRect(50, 180, 210, 40, RED);
-  tft.drawRect(50, 180, 210, 40, BLUE);
-  tft.setCursor(90, 190);
-  tft.setTextColor(WHITE);
+  tft.fillRect(170, 160, 100, 60, RED);
+  tft.drawRect(170, 160, 100, 60, BLUE);
+  tft.setCursor(175, 185);
+  tft.setTextColor(BLACK);
   tft.setTextSize(2);
-  tft.print("please click");
+  tft.print("BUTTON 2");
 
 }
 
@@ -81,7 +81,7 @@ void loop() {
     p.x = map(p.x, TS_MAXX, TS_MINX, 0, 320);
     p.y = map(p.y, TS_MAXY, TS_MINY, 0, 480);
 
-    if (p.x > 50 && p.x < 260 && p.y > 180 && p.y < 270 && buttonEnabled) {
+    if (p.x > 250 && p.x < 300 && p.y > 70 && p.y <200 && buttonEnabled) {
 
       buttonEnabled = false;
 
@@ -91,66 +91,29 @@ void loop() {
       pinMode(XM, OUTPUT);
       pinMode(YM, OUTPUT);
       tft.setRotation(1);
-      tft.fillScreen(WHITE);
-      tft.drawRect(0, 0, 319, 240, YELLOW);
+      tft.fillScreen(YELLOW);
+      tft.drawRect(0, 0, 319, 240, BLACK);
 
-      tft.setCursor(105, 40);
+      tft.setCursor(95, 60);
       tft.setTextColor(BLACK);
       tft.setTextSize(3);
       tft.print("PAGE ONE");
 
-      tft.setCursor(115, 80);
-      tft.setTextColor(BLACK);
-      tft.setTextSize(2);
-      tft.print("= _ =");
+      tft.setCursor(125, 120);
+      tft.setTextColor(BLUE);
+      tft.setTextSize(3);
+      tft.print("*^_^*");
 
-      tft.fillRect(50, 140, 210, 40, RED);
-      tft.drawRect(50, 140, 210, 40, BLUE);
-      tft.setCursor(90, 190);
-      tft.setTextColor(WHITE);
+      tft.fillRect(200,180, 80, 40, RED);
+      tft.drawRect(200,180, 80, 40, BLACK);
+      tft.setCursor(220, 190);
+      tft.setTextColor(BLACK);
       tft.setTextSize(2);
       tft.print("BACK");
     }
-    else if (p.x > 50 && p.x <  260 && p.y >  180 && p.y < 270) {
-      buttonEnabled = true;
-      pinMode(XM, OUTPUT);
-      pinMode(YP, OUTPUT);
-      tft.setRotation(1);
-      tft.fillScreen(WHITE);
-      tft.drawRect(0, 0, 319, 240, YELLOW);
-
-      tft.setCursor(105, 40);
-      tft.setTextColor(BLACK);
-      tft.setTextSize(3);
-      tft.print("HELLO");
-
-      tft.setCursor(115, 80);
-      tft.setTextColor(BLACK);
-      tft.setTextSize(2);
-      tft.print("HELLO");
-
-      tft.setCursor(115, 120);
-      tft.setTextColor(BLUE);
-      tft.setTextSize(2);
-      tft.print("MIDTERM");
-
-      tft.fillRect(50, 140, 210, 40, RED);
-      tft.drawRect(50, 140, 210, 40, BLUE);
-      tft.setCursor(90, 190);
-      tft.setTextColor(WHITE);
-      tft.setTextSize(2);
-      tft.print("please click");
-
-      tft.fillRect(50, 180, 210, 40, RED);
-      tft.drawRect(50, 180, 210, 40, BLUE);
-      tft.setCursor(90, 190);
-      tft.setTextColor(WHITE);
-      tft.setTextSize(2);
-      tft.print("please click");
-    }
-    else {
+    else if (p.x > 250 && p.x < 300 && p.y > 270 && p.y < 430 && buttonEnabled) {
       
-       buttonEnabled = false;
+      buttonEnabled = false;
 
       pinMode(XM, OUTPUT);
       pinMode(YP, OUTPUT);
@@ -158,25 +121,63 @@ void loop() {
       pinMode(XM, OUTPUT);
       pinMode(YM, OUTPUT);
       tft.setRotation(1);
-      tft.fillScreen(WHITE);
+      tft.fillScreen(GREEN);
       tft.drawRect(0, 0, 319, 240, YELLOW);
 
-      tft.setCursor(105, 40);
+      tft.setCursor(95, 60);
       tft.setTextColor(BLACK);
       tft.setTextSize(3);
       tft.print("PAGE TWO");
 
-      tft.setCursor(115, 80);
+      tft.setCursor(125, 120);
+      tft.setTextColor(BLUE);
+      tft.setTextSize(3);
+      tft.print("=^_^=");
+
+      tft.fillRect(200,180, 80, 40, RED);
+      tft.drawRect(200,180, 80, 40, BLACK);
+      tft.setCursor(220, 195);
       tft.setTextColor(BLACK);
       tft.setTextSize(2);
-      tft.print("= _ =");
+      tft.print("BACK");    
+    }
+    else {
+      
+      buttonEnabled = true;
+      pinMode(XM, OUTPUT);
+      pinMode(YP, OUTPUT);
+      tft.setRotation(1);
+      tft.fillScreen(WHITE);
+      tft.drawRect(0, 0, 319, 240, YELLOW);
 
-      tft.fillRect(50, 140, 210, 40, RED);
-      tft.drawRect(50, 140, 210, 40, BLUE);
-      tft.setCursor(90, 190);
-      tft.setTextColor(WHITE);
+      tft.setCursor(60, 40);
+      tft.setTextColor(BLACK);
+      tft.setTextSize(3);
+      tft.print("Touchscreen\n     Project");
+
+      tft.setCursor(125, 100);
+      tft.setTextColor(MAGENTA);
       tft.setTextSize(2);
-      tft.print("BACK");
+      tft.print("ECE 387");
+
+      tft.setCursor(110, 120);
+      tft.setTextColor(BLUE);
+      tft.setTextSize(2);
+      tft.print("HOME PAGE");
+    
+      tft.fillRect(50, 160, 100, 60,YELLOW);
+      tft.drawRect(50, 160, 100, 60, BLUE);
+      tft.setCursor(55, 185);
+      tft.setTextColor(BLACK);
+      tft.setTextSize(2);
+      tft.print("BUTTON 1");
+    
+      tft.fillRect(170, 160, 100, 60, RED);
+      tft.drawRect(170, 160, 100, 60, BLUE);
+      tft.setCursor(175, 185);
+      tft.setTextColor(BLACK);
+      tft.setTextSize(2);
+      tft.print("BUTTON 2");
     }
   }
 }
